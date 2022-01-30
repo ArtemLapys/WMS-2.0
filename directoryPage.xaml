@@ -1,0 +1,50 @@
+﻿<Page
+    x:Class="WMS_2._0.directoryPage"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:local="using:WMS_2._0"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    mc:Ignorable="d"
+    Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
+
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="70" />
+            <RowDefinition Height="150" MaxHeight="175"/>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="50" />
+        </Grid.RowDefinitions>
+        <Button x:Name="BackButton" Style="{StaticResource NavigationBackButtonNormalStyle}" IsEnabled="{x:Bind Frame.CanGoBack, Mode=OneWay}"  ToolTipService.ToolTip="" Height="70" Width="70" Click="BackButton_Click"/>
+        <TextBlock Grid.Row="0" Text="📑My directory:" HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="24" FontFamily="Open Sans"/>
+        <TextBlock x:Name="Directory" Grid.Row="1" Text="We are waiting for the path to the file save folder to fill in the information of the music track being played😥" HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="26" FontFamily="Open Sans" TextWrapping="Wrap"/>
+        <Grid Grid.Row="2">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="150" />
+                <!--размер первой кнопки, 50%, чтобы не прижималось к краям-->
+                <ColumnDefinition Width="*"/>
+                <!--размер второй кнопки, * - заполнение оставшегося пространства-->
+                <ColumnDefinition Width="*" />
+                <ColumnDefinition Width="*" />
+                <ColumnDefinition Width="*" />
+                <ColumnDefinition Width="150" />
+                <!--размер последней кнопки, 50%, чтобы не прижималось к краям-->
+            </Grid.ColumnDefinitions>
+            <Button x:Name="NewDirectoryButton" Click="NewDirectoryButton_Click" Grid.Column="1" Style="{StaticResource mainButton}" Grid.ColumnSpan="2">
+                <!--первая кнопка-->
+                <StackPanel Orientation="Vertical">
+                    <TextBlock Text="📝" FontSize="110" HorizontalAlignment="Center" VerticalAlignment="Center" FontFamily="Open Sans" />
+                    <TextBlock Text="New directory" Style="{StaticResource textMainButton}"/>
+                </StackPanel>
+            </Button>
+            <Button Grid.Column="3" Style="{StaticResource mainButton}" Grid.ColumnSpan="2" >
+                <!--первая кнопка-->
+                <StackPanel Orientation="Vertical">
+                    <TextBlock Text="❌"  FontSize="110" HorizontalAlignment="Center" VerticalAlignment="Center" FontFamily="Open Sans" />
+                    <TextBlock Text="Clear the directory" HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="24" FontFamily="Open Sans" Style="{StaticResource textMainButton}"/>
+                </StackPanel>
+            </Button>
+        </Grid>
+        <TextBlock Grid.Row="3" Text="Translation by Google&amp;Yandex" HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="12" FontFamily="Open Sans"  />
+    </Grid>
+</Page>
